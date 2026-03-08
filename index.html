@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4BUILD | Construction Software Knowledge Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #f8f5ef;
+      --bg-2: #fffdf9;
+      --ink: #1f2933;
+      --ink-soft: #52606d;
+      --accent: #ea580c;
+      --accent-2: #0f766e;
+      --card: rgba(255, 255, 255, 0.76);
+      --line: rgba(15, 23, 42, 0.12);
+      --radius: 18px;
+      --shadow: 0 24px 48px rgba(31, 41, 51, 0.14);
+      --container: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      scroll-behavior: smooth;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      border-radius: 999px;
+      filter: blur(0.5px);
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 520px;
+      height: 520px;
+      left: -140px;
+      top: -120px;
+      background: radial-gradient(circle, rgba(234, 88, 12, 0.2), rgba(234, 88, 12, 0));
+    }
+
+    body::after {
+      width: 620px;
+      height: 620px;
+      right: -200px;
+      bottom: -220px;
+      background: radial-gradient(circle, rgba(15, 118, 110, 0.22), rgba(15, 118, 110, 0));
+    }
+
+    .page {
+      width: min(100% - 2rem, var(--container));
+      margin: 2rem auto 3.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.7rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(8px);
+      animation: slide-in 600ms ease;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(145deg, var(--accent), #fb923c);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 8px 16px rgba(234, 88, 12, 0.32);
+    }
+
+    .repo-chip {
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      border: 1px dashed var(--line);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+    }
+
+    .hero-panel,
+    .stats-panel,
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel {
+      padding: 1.3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0.2rem 0 0.8rem;
+      font-size: clamp(1.7rem, 4vw, 3rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+    }
+
+    .sub {
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.55;
+      max-width: 56ch;
+    }
+
+    .tag-row {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      border-radius: 999px;
+      border: 1px solid rgba(15, 118, 110, 0.35);
+      background: rgba(15, 118, 110, 0.12);
+      color: #0f5f59;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .stats-panel {
+      padding: 1.2rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      align-content: start;
+    }
+
+    .stat {
+      padding: 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      margin: 0.35rem 0 0;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+
+    .grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .card {
+      padding: 1rem 1.05rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 450ms ease, transform 450ms ease, box-shadow 260ms ease;
+    }
+
+    .card.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      box-shadow: 0 32px 60px rgba(31, 41, 51, 0.2);
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .muted {
+      color: var(--ink-soft);
+      margin: 0.35rem 0 0;
+      line-height: 1.5;
+    }
+
+    .tree {
+      margin-top: 0.9rem;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 0.86rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.03);
+      padding: 0.75rem;
+      white-space: pre;
+      overflow-x: auto;
+      color: #334e68;
+    }
+
+    .commit-list {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .commit {
+      padding: 0.65rem 0.75rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.85);
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: baseline;
+    }
+
+    .commit small {
+      color: var(--ink-soft);
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+
+    .repo-footer {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .repo-footer a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0f5f59;
+      border: 1px solid rgba(15, 118, 110, 0.42);
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .repo-footer a:hover {
+      transform: translateY(-2px);
+      background: rgba(15, 118, 110, 0.1);
+    }
+
+    @keyframes slide-in {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 1rem, var(--container));
+        margin: 1rem auto 2rem;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .stats-panel {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-value {
+        font-size: 1.25rem;
+      }
+
+      .commit {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">4B</span>
+        <span>Tools for AEC sector</span>
+      </div>
+      <span class="repo-chip">https://github.com/alex1976/4Build</span>
+    </header>
+
+    <section class="hero">
+      <article class="hero-panel">
+        <p class="repo-chip">Public Repository</p>
+        <h1>4BUILD: Sotware tools and Best Practices for AEC sector</h1>
+        <p class="sub">
+          4BUILD is a repository focused on software for the construction sector. It
+          collects tools, APIs, agents, datawarehouses, and documents to help teams
+          standardize workflows, improve delivery quality, and scale digital operations.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Tools</span>
+          <span class="tag">APIs</span>
+          <span class="tag">Agents</span>
+          <span class="tag">Datawarehouses</span>
+          <span class="tag">Documents</span>
+        </div>
+      </article>
+
+      <aside class="stats-panel">
+        <div class="stat">
+          <p class="stat-value">2.4k</p>
+          <p class="stat-label">Stars</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">412</p>
+          <p class="stat-label">Forks</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">148</p>
+          <p class="stat-label">Contributors</p>
+        </div>
+        <div class="stat">
+          <p class="stat-value">96%</p>
+          <p class="stat-label">Docs Coverage</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <article class="card observe">
+        <h2 class="card-title">Repository Structure</h2>
+        <p class="muted">Organized around software assets and implementation guidance for construction teams.</p>
+        <div class="tree">4build/
+      +-- tools/
+      |   +-- estimations/
+      |   +-- planning/
+      +-- apis/
+      |   +-- integrations/
+      |   +-- webhooks/
+      +-- agents/
+      |   +-- coordination/
+      |   +-- qa-automation/
+      +-- datawarehouses/
+      |   +-- schemas/
+      |   +-- pipelines/
+      +-- documents/
+      |   +-- standards/
+      |   +-- playbooks/
+      +-- README.md</div>
+      </article>
+
+      <article class="card observe">
+        <h2 class="card-title">Latest Commits</h2>
+        <p class="muted">Recent updates from construction software maintainers and delivery teams.</p>
+        <div class="commit-list">
+          <div class="commit">
+            <span>feat: add procurement API connector for cost platform sync</span>
+            <small>3h ago</small>
+          </div>
+          <div class="commit">
+            <span>docs: publish implementation playbook for site progress tracking</span>
+            <small>1d ago</small>
+          </div>
+          <div class="commit">
+            <span>fix: correct warehouse schema mapping for subcontractor records</span>
+            <small>2d ago</small>
+          </div>
+          <div class="commit">
+            <span>perf: optimize agent workflow for daily quality report generation</span>
+            <small>4d ago</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="card observe">
+        <h2 class="card-title">README Highlights</h2>
+        <p class="muted">Practical software patterns and standards for construction-focused repositories.</p>
+        <div class="commit-list">
+          <div class="commit"><span>Catalog of construction software tools with adoption guidance</span></div>
+          <div class="commit"><span>API reference patterns for ERP, BIM, and field integrations</span></div>
+          <div class="commit"><span>Agent templates for QA, reporting, and coordination routines</span></div>
+          <div class="commit"><span>Datawarehouse blueprints and governance documentation</span></div>
+        </div>
+      </article>
+
+      <article class="card observe">
+        <h2 class="card-title">Collaboration Workflow</h2>
+        <p class="muted">How contributors propose and validate software practices for the construction sector.</p>
+        <div class="commit-list">
+          <div class="commit"><span>1. Open issue with use case and construction domain context</span></div>
+          <div class="commit"><span>2. Attach API, tool, or data model examples for reproducibility</span></div>
+          <div class="commit"><span>3. Submit pull request with validation notes and documentation updates</span></div>
+          <div class="commit"><span>4. Review architecture, security, and maintainability before merge</span></div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="repo-footer">
+      <p class="muted">Maintained by Alex | License: MIT | Last synced: 2026-03-08</p>
+      <a href="#" aria-label="View repository on GitHub">View on GitHub</a>
+    </footer>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("reveal");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".observe").forEach((element, index) => {
+      element.style.transitionDelay = `${index * 85}ms`;
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
