@@ -78,6 +78,10 @@ The following resources were selected from official websites and active GitHub r
 - [IfcOpenShell Website](https://www.ifcopenshell.org/): toolkit downloads and documentation ecosystem for openBIM workflows.
 - [buildingSMART Data Dictionary (bSDD)](https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/): standardized dictionary service to link terms/properties in BIM workflows.
 - [Bonsai BIM](https://bonsaibim.org/): Free, open source, native IFC authoring platform.
+- [That Open BIM](https://docs.thatopen.com/intro): Open source BIM libraries to create your own 3D BIM software.
+- [IFC.js](https://ifcjs.github.io/info/): JavaScript library for IFC parsing and visualization in web applications.
+- [Xeokit sdk](https://github.com/xeokit/xeokit-sdk): JavaScript software development kit for building 3D web-based BIM viewers and applications.
+- [XBim Toolkit](https://docs.xbim.net/): .NET open-source software development BIM toolkit for working with IFC data and building applications.
 
 ## Notes
 
