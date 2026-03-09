@@ -35,6 +35,54 @@ The repository is intended to include:
 - agent templates for QA, reporting, and coordination tasks
 - data and documentation standards for governance and reuse
 
+## AEC Resource Catalog (Web + GitHub)
+
+The following resources were selected from official websites and active GitHub repositories.
+
+### Tools
+
+- [IfcOpenShell](https://github.com/IfcOpenShell/IfcOpenShell): open source IFC toolkit and geometry engine for reading/writing BIM data.
+- [Speckle Server](https://github.com/specklesystems/speckle-server): open source AEC data hub for model exchange, automation, and collaboration.
+- [GeoPandas](https://geopandas.org/): Python library for geospatial data processing (useful for site and infrastructure workflows).
+- [OSMnx](https://osmnx.readthedocs.io/): Python package to download/analyze street networks and geospatial features from OSM.
+- [Pyrosm](https://github.com/pyrosm/pyrosm): fast parser for OpenStreetMap PBF files into GeoDataFrames.
+
+### APIs
+
+- [Autodesk Platform Services (APS)](https://aps.autodesk.com/): AEC-focused APIs for Viewer, Automation, and Data Management.
+- [APS GitHub Organization](https://github.com/autodesk-platform-services): official SDKs and sample repositories for APS integrations.
+- [BCF API (buildingSMART)](https://github.com/buildingSMART/BCF-API): REST API specification for BIM issue/topic exchange between tools.
+- [Google Maps Platform APIs](https://developers.google.com/maps/documentation): maps, routes, geocoding, places, and environment APIs.
+- [Azure Maps REST APIs](https://learn.microsoft.com/en-us/rest/api/maps/): geospatial APIs for search, route, weather, traffic, and map rendering.
+- [Azure Maps Code Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples): practical implementation samples for Azure Maps.
+
+### Data
+
+- [Microsoft Global ML Building Footprints](https://github.com/microsoft/GlobalMLBuildingFootprints): large global open building footprint dataset with coverage updates.
+- [OpenStreetMap](https://www.openstreetmap.org/): community-maintained open map data widely used in AEC geospatial workflows.
+- [Overture Maps Foundation](https://overturemaps.org/): open interoperable map data initiative for production-grade geospatial data.
+- [Overture Maps Data Repo](https://github.com/OvertureMaps/data): release access details, schemas, and data themes (including buildings).
+
+### Agents
+
+- [OpenAI API Docs (Agents)](https://developers.openai.com/api/docs/guides/agents): guidance for building tool-using and workflow agents.
+- [Microsoft AutoGen](https://microsoft.github.io/autogen/stable/): framework for single- and multi-agent applications.
+- [Speckle Automate](https://speckle.systems/build-with-speckle): AEC-oriented automation workflows that can host validation/reporting logic.
+- [APS MCP/Revit Automation Samples](https://github.com/search?q=topic%3Aautodesk-designautomation+org%3Aautodesk-platform-services&type=Repositories): examples of AI-connected and automation-oriented workflows in AEC contexts.
+
+### BIM
+
+- [buildingSMART IFC Standard](https://www.buildingsmart.org/standards/bsi-standards/industry-foundation-classes/): official source for IFC versions and compliance resources.
+- [IFC5 Development](https://github.com/buildingSMART/IFC5-development): next-generation IFC development examples.
+- [IDS (Information Delivery Specification)](https://github.com/buildingSMART/IDS): XML standard for machine-readable BIM information requirements.
+- [IfcOpenShell Website](https://www.ifcopenshell.org/): toolkit downloads and documentation ecosystem for openBIM workflows.
+- [buildingSMART Data Dictionary (bSDD)](https://www.buildingsmart.org/users/services/buildingsmart-data-dictionary/): standardized dictionary service to link terms/properties in BIM workflows.
+
+## Notes
+
+- This list is a starting point and can be expanded with region-specific tools, national standards, and domain-specific datasets (rail, roads, utilities, ports).
+- Verify license and usage terms for each resource before production use.
+
 ## Collaboration Workflow
 
 Suggested contribution flow:
