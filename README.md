@@ -71,13 +71,14 @@ The following resources were selected from official websites and active GitHub r
 - [buildingSMART Sample & Test Files](https://github.com/buildingSMART/Sample-Test-Files): official openBIM test datasets across IFC versions for interoperability checks.
 - [buildingSMART Community Sample Test Files](https://github.com/buildingsmart-community/Community-Sample-Test-Files): community-contributed IFC/BCF/IDS sample datasets for pipeline validation.
 
-### Agents
+### Agents (Skills, Instructions, Prompts)
 
 - [OpenAI API Docs (Agents)](https://developers.openai.com/api/docs/guides/agents): guidance for building tool-using and workflow agents.
 - [Microsoft AutoGen](https://microsoft.github.io/autogen/stable/): framework for single- and multi-agent applications.
 - [Speckle Automate](https://speckle.systems/build-with-speckle): AEC-oriented automation workflows that can host validation/reporting logic.
 - [APS MCP/Revit Automation Samples](https://github.com/search?q=topic%3Aautodesk-designautomation+org%3Aautodesk-platform-services&type=Repositories): examples of AI-connected and automation-oriented workflows in AEC contexts.
 - [POWERBI MCP server](https://github.com/microsoft/powerbi-modeling-mcp): repo for the official Power BI MCP server, which can be used to interact with data model.
+- [Claude Estimation Skill](https://github.com/alex1976/4build/tree/main/skills/estimation): example of a skill for creating and editing estimates in Excel based on input data and price lists.
 
 ### BIM resoruces
 
