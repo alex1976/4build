@@ -79,6 +79,7 @@ The following resources were selected from official websites and active GitHub r
 - [APS MCP/Revit Automation Samples](https://github.com/search?q=topic%3Aautodesk-designautomation+org%3Aautodesk-platform-services&type=Repositories): examples of AI-connected and automation-oriented workflows in AEC contexts.
 - [POWERBI MCP server](https://github.com/microsoft/powerbi-modeling-mcp): repo for the official Power BI MCP server, which can be used to interact with data model.
 - [Claude Estimation Skill](https://github.com/alex1976/4build/tree/main/skills/estimation): example of a skill for creating and editing estimates in Excel based on input data and price lists.
+- [Claude Construction Site Scheduling Skill](https://github.com/alex1976/4build/tree/main/skills/planning): example of a skill for creating and editing a construction site scheduling in Excel based on estimate.
 
 ### BIM resoruces
 
